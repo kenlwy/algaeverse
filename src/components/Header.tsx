@@ -4,7 +4,7 @@ const Header: React.FC = () => {
   return (
     <header className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-6">
+        <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-4">
             <div className="flex-shrink-0">
               <div className="flex items-center space-x-3">
@@ -14,7 +14,7 @@ const Header: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold tracking-tight">
+                  <h1 className="text-xl font-bold tracking-tight">
                     AlgaeVerse
                   </h1>
                   <p className="text-blue-100 text-sm font-medium">

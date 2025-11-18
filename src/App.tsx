@@ -382,10 +382,10 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-100">
       <Header />
       
-      <div className="max-w-6xl mx-auto p-6">
+      <div className="max-w-6xl mx-auto p-4">
         {/* Hero Section */}
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          <h2 className="text-xl font-bold text-gray-900 mb-2">
             AI-Powered Investment Proposals
           </h2>
           <p className="text-sm text-gray-600 max-w-xl mx-auto">
@@ -397,7 +397,7 @@ function App() {
         {/* Main Chat Container */}
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
           {/* Chat Messages */}
-          <div className="h-96 overflow-y-auto p-6 space-y-4 bg-gradient-to-b from-gray-50 to-white">
+          <div className="h-96 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-gray-50 to-white">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -439,7 +439,7 @@ function App() {
           </div>
 
           {/* Input Area */}
-          <div className="border-t border-gray-200 p-6 bg-white">
+          <div className="border-t border-gray-200 p-4 bg-white">
             {/*<div className="flex items-center space-x-4 mb-4">
               <FileUpload onFileUpload={handleFileUpload} />
               <ChatInterface onSendMessage={handleSendMessage} isLoading={isLoading} />
