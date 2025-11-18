@@ -384,11 +384,11 @@ function App() {
       
       <div className="max-w-6xl mx-auto p-6">
         {/* Hero Section */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
             AI-Powered Investment Proposals
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm text-gray-600 max-w-xl mx-auto">
             Generate professional investment proposals for the revolutionary AlgaeVerse smart algae farming system. 
             Transform urban spaces into sustainable cooling solutions.
           </p>
@@ -440,10 +440,15 @@ function App() {
 
           {/* Input Area */}
           <div className="border-t border-gray-200 p-6 bg-white">
-            <div className="flex items-center space-x-4 mb-4">
+            {/*<div className="flex items-center space-x-4 mb-4">
               <FileUpload onFileUpload={handleFileUpload} />
               <ChatInterface onSendMessage={handleSendMessage} isLoading={isLoading} />
-            </div>
+            </div>*/}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-4 space-y-4 sm:space-y-0">
+            <FileUpload onFileUpload={handleFileUpload} />
+            <ChatInterface onSendMessage={handleSendMessage} isLoading={isLoading} />
+          </div>
+
             
             {/* Country Input */}
             <div className="flex items-center space-x-4">
@@ -464,7 +469,7 @@ function App() {
         </div>
 
         {/* Features Section */}
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
+        {/*<div className="mt-12 grid md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
               <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -494,7 +499,7 @@ function App() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Cost Analysis</h3>
             <p className="text-gray-600 text-sm">Get detailed cost estimates, ROI projections, and financial analysis for your investment.</p>
           </div>
-        </div>
+        </div>*/}
       </div>
     </div>
   );
