@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import type { KeyboardEvent } from 'react';
+import type { KeyboardEvent, ChangeEvent } from 'react';
 
 interface ChatInterfaceProps {
   onSendMessage: (message: string) => void;
@@ -13,43 +13,34 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onSendMessage, isLoading 
     if (message.trim() && !isLoading) {
       onSendMessage(message);
       setMessage('');
+      autoResize();
     }
   };
 
-  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setMessage(e.target.value);
+    autoResize();
+  };
+
+  const handleKeyPress = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSubmit();
     }
   };
 
-  const textareaRef = useRef(null);
-
-  const handleChange = (e) => {
-    setMessage(e.target.value);
-    autoResize();
-  };
-
   const autoResize = () => {
     const textarea = textareaRef.current;
     if (!textarea) return;
-    textarea.style.height = "auto";         // reset height
-    textarea.style.height = textarea.scrollHeight + "px"; // set to new content height
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
   };
-
 
   return (
     <div className="flex-1 flex items-center space-x-3">
       <div className="relative flex-1">
-        {/*<input
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="Type your message..."
-          disabled={isLoading}
-          className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 transition-all duration-200 bg-white"
-        />*/}
         <textarea
           ref={textareaRef}
           value={message}
@@ -61,7 +52,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onSendMessage, isLoading 
           className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl
                      focus:ring-2 focus:ring-blue-500 focus:border-transparent
                      disabled:opacity-50 transition-all duration-200 bg-white
-                     resize-none overflow-hidden h-20"
+                     resize-none overflow-hidden"
         ></textarea>
 
         <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -81,14 +72,8 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onSendMessage, isLoading 
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
         </svg>
         <span className="font-medium">Send</span>
       </button>
@@ -96,4 +81,4 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onSendMessage, isLoading 
   );
 };
 
-export default ChatInterface; 
+export default ChatInterface;
